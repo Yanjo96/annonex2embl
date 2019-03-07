@@ -190,7 +190,7 @@ class GenerateSeqFeature:
         return source_feature
 
     def regular_feat(self, feature_name, feature_type, feature_loc,
-                     transl_table, feature_product=None):
+                     transl_table, feature_seq, feature_product=None):
         ''' This function generates a regular SeqFeature for a SeqRecord.
         Args:
             feature_name (str):  usually a gene symbol; example: 'matK'
@@ -201,6 +201,7 @@ class GenerateSeqFeature:
             transl_table (int): an integer; example: 11 (for bacterial code)
             feature_product (str): the product of the feature in question;
                                    example: 'maturase K'
+            feature_seq (str): nucleotide sequence sequence
         Returns:
             SeqFeature (obj):   A SeqFeature object
         Raises:
@@ -220,6 +221,11 @@ class GenerateSeqFeature:
                 quals['product'] = feature_product
         if feature_type == 'CDS':
             quals['transl_table'] = transl_table
+            # Add a function to add "/codon_start=1" in CDS feature,
+            # if start and stop position of feature is uncertain
+            # (i.e., <100..>200).
+            if not feature_seq.startswith(GlobVars.nex2ena_start_codon):
+                quals['codon_start'] = 1
         if feature_type == 'gap':
             quals['estimated_length'] = str(feature_loc.end.position-feature_loc.start.position)
             #quals['estimated_length'] = str(feature_loc.end.real-feature_loc.start.real+1)
@@ -229,6 +235,8 @@ class GenerateSeqFeature:
             type=feature_type,
             qualifiers=quals)
         return seq_feature
+
+
 
 
 class GenerateSeqRecord:

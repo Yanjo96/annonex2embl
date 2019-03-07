@@ -1,0 +1,4 @@
+isolate, organism, note, country, specimen_voucher
+fuzzy, "fuzzy", "Tax.Authority: Author_1", "Country_1: Area_1", "Herbarium_1: Collection#"
+not_fuzzy, "not_fuzzy", "Tax.Authority: Author_1", "Country_1: Area_1", "Herbarium_1: Collection#"
+test, "not_fuzzy", "Tax.Authority: Author_1", "Country_1: Area_1", "Herbarium_1: Collection#"

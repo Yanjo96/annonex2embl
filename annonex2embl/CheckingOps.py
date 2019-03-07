@@ -94,8 +94,8 @@ class AnnoCheck:
             compound_integer_range = sum(contiguous_subsets, [])
             # 2. Adjust location range
             len_with_internStop = len(transl_with_internStop) * 3
-            # IMPORTANT!: In TFL, the "+3" is for the stop codon, which is 
-            # counted in the location range, but is not part of the AA 
+            # IMPORTANT!: In TFL, the "+3" is for the stop codon, which is
+            # counted in the location range, but is not part of the AA
             # sequence of the translation.
             adjusted_range = compound_integer_range[:(len_with_internStop+3)]
             # 3. Establish location
@@ -120,7 +120,7 @@ class AnnoCheck:
             _transl(to_stop=True) and must consequently be added again
             (see line 137).
         '''
-        
+
         try:
             # Note: TFL must contain "cds=True"; don't delete it
             transl_out = AnnoCheck._transl(self.extract,
@@ -147,11 +147,11 @@ class AnnoCheck:
                 'single amino acid.' %
                 (self.feature.id, self.record_id))
 
-        # IMPORTANT!!!: In an ENA record, the translation does not display the 
+        # IMPORTANT!!!: In an ENA record, the translation does not display the
         # stop codon (i.e., the '*'), while the feature location range (i.e., 738..2291)
         # very much includes its position, which is biologically logical, as
         # a stop codon is not an amino acid in a translation.
-        
+
         # Thus, TFL would be incorrect, because it would add back an asterisk into the translation.
         #transl_out = transl_out + "*"
         return (transl_out, feat_loc)
@@ -194,6 +194,11 @@ class TranslCheck:
                                     transl_table).check()
             if feature.type == 'CDS':
                 feature.qualifiers["translation"] = transl
+            if feature.type == 'exon' or feature.type == 'gene':
+                # With gene and exon features than are less than 15 nt long,
+                # the annotation should be dropped from the output.
+                if len([base for base in loc]) < 15:
+                    raise ME.MyException()
             feature.location = loc
         except ME.MyException as e:
             raise e

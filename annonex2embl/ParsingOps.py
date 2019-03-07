@@ -359,4 +359,3 @@ class ParseCharsetName:
         else:
             charset_product = None
         return (charset_sym, charset_type, charset_product)
-

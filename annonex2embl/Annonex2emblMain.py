@@ -55,6 +55,9 @@ import pdb
 #############
 # FUNCTIONS #
 #############
+csv = "examples/input/fuzzy.csv"
+nex = "examples/input/fuzzy.nex"
+out = "examples/output/fuzzy.embl"
 
 def annonex2embl(path_to_nex,
                  path_to_csv,
@@ -127,7 +130,7 @@ def annonex2embl(path_to_nex,
         sys.exit('%s annonex2embl ERROR: Sequence names in `%s` '
                  'are NOT IDENTICAL to sequence IDs in `%s`.'
                  '%s The following sequence names don\'t have a match: `%s`'
-                 % ('\n', colored(path_to_nex, 'red'), 
+                 % ('\n', colored(path_to_nex, 'red'),
                  colored(path_to_csv, 'red'), '\n',
                  colored(','.join(not_shared), 'red')))
 
@@ -140,7 +143,7 @@ def annonex2embl(path_to_nex,
             charset_sym, charset_type, charset_product = PrOps.\
                 ParseCharsetName(charset_name, email_addr).parse()
         except ME.MyException as e:
-            sys.exit('%s annonex2embl ERROR: %s' % ('\n', 
+            sys.exit('%s annonex2embl ERROR: %s' % ('\n',
                     colored(e, 'red')))
 
         charset_dict[charset_name] = (charset_sym, charset_type,
@@ -172,6 +175,16 @@ def annonex2embl(path_to_nex,
             current_seq, current_quals, uniq_seqid_col, seq_version,
             descr_DEline, topology, tax_division, organelle)
 
+        # Add a function that automatically removes all sequences
+        # that consist only of Ns (or ?s).
+        skip = True
+        for i in seq_record.seq:
+            if i != 'N' and i != '?':
+                skip = False
+                break
+        if skip:
+            continue
+
 ####################################
 
 # 6.3. CLEAN UP THE SEQUENCE OF THE SEQ_RECORD (i.e., remove leading or
@@ -186,6 +199,7 @@ def annonex2embl(path_to_nex,
         seq_record.seq._data = seq_record.seq._data.replace('?', 'N')
         # TFL generates a safe copy of sequence to work on
         seq_withgaps = copy(seq_record.seq)
+
 
 # 6.3.2. Remove leading ambiguities while maintaining
 #        correct annotations
@@ -243,7 +257,7 @@ def annonex2embl(path_to_nex,
         for charset_name, charset_range in charsets_final.items():
 
 # 6.6.1. Proceed in loop only if charset_range is not empty
-#        An empty charset_range could be the case if the charset only 
+#        An empty charset_range could be the case if the charset only
 #        consisted of 'N' (which were removed in steps 6.3.2 and 6.3.3).
             if charset_range:
 
@@ -261,9 +275,14 @@ def annonex2embl(path_to_nex,
 # 6.6.4. Generate a regular SeqFeature and append to seq_record.features
 #        Note: The position indices for the stop codon are truncated in
 #              this step.
+                seq = []
+                [seq.append(seq_record[obj]) for obj in location_object]
+                seq = ''.join(seq)
+
                 seq_feature = GnOps.GenerateSeqFeature().regular_feat(
                     charset_sym, charset_type, location_object, transl_table,
-                    charset_product)
+                    seq, charset_product)
+
                 seq_record.features.append(seq_feature)
 
 ####################################
@@ -283,7 +302,7 @@ def annonex2embl(path_to_nex,
             # Check if feature is a coding region
             if feature.type == 'CDS' or feature.type == 'gene':
                 try:
-                    # In TFL, features are truncated to the first 
+                    # In TFL, features are truncated to the first
                     # internal stop codon, if present.
                     feature = CkOps.TranslCheck().\
                         transl_and_quality_of_transl(seq_record,
@@ -291,20 +310,20 @@ def annonex2embl(path_to_nex,
                 except ME.MyException as e:
                     print('%s annonex2embl WARNING: %s Feature `%s` '
                           '(type: `%s`) of sequence `%s` is not saved to '
-                          'output.' % ('\n', colored(e, 'red'), 
+                          'output.' % ('\n', colored(e, 'red'),
                                        colored(feature.id, 'red'),
                                        colored(feature.type, 'red'),
                                        colored(seq_record.id, 'red')))
                     removal_list.append(indx)
-        # TFL removes the objects in reverse order, because otherwise 
-        # each removal would shift the indices of subsequent objects 
+        # TFL removes the objects in reverse order, because otherwise
+        # each removal would shift the indices of subsequent objects
         # to the left.
         for indx in sorted(removal_list, reverse=True):
             seq_record.features.pop(indx)
 
-# (FUTURE)  Since "CkOps.TranslCheck().transl_and_quality_of_transl()" 
+# (FUTURE)  Since "CkOps.TranslCheck().transl_and_quality_of_transl()"
 #           shortens annotations to the first internal stop codon
-#           encountered, the subsequent intron or IGS needs to be 
+#           encountered, the subsequent intron or IGS needs to be
 #           extended towards 5' to compensate.
 
 ####################################
@@ -316,14 +335,13 @@ def annonex2embl(path_to_nex,
                 # Note: Don't use "feature.extract(seq_record.seq)" in TFLs,
                 #       as stop codon was truncated from feature under
                 #       Step 6.8, because in an ENA record, the AA sequence
-                #       of the translation does not have the stop codon 
-                #       (i.e., the '*'), while the feature location 
-                #       range (i.e., 738..2291) very much includes 
+                #       of the translation does not have the stop codon
+                #       (i.e., the '*'), while the feature location
+                #       range (i.e., 738..2291) very much includes
                 #       its position (which is biologically logical).
                 charset_range_updated = range(feature.location.start.position,
                     feature.location.end.position)
                 coding_seq = ''.join([seq_record.seq[i] for i in charset_range_updated])
-                
                 if not coding_seq.startswith(GlobVars.nex2ena_start_codon):
                     feature.location = GnOps.GenerateFeatLoc().\
                         make_start_fuzzy(feature.location)
@@ -360,3 +378,23 @@ def annonex2embl(path_to_nex,
               "\\\nFH   Key             Location\/Qualifiers/g' " + path_to_outfile)
 # 8.2. Corrections
     os.system("sed -i 's/\; DNA\;/\; genomic DNA\;/g' "+path_to_outfile)
+
+
+
+if __name__ == "__main__":
+    annonex2embl(nex,
+                 csv,
+                 "chloroplast trnR-atpA intergenic spacer",
+                 "c.grube@yahoo.com",
+                 "Grube, Claire",
+                 out,
+
+                 'False',
+                 'False',
+                 'linear',
+                 'PLN',
+                 'isolate',
+                 '11',
+                 'plastid',
+                 '1'
+                 )
