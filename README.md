@@ -39,13 +39,7 @@ python2 $SCRPT -n $INPUT -c $METAD -o ${INP%.nex*}.embl -d $DESCR -e $EMAIL -a $
 ```
 
 ## TO DO
-1.a. Add a function to add "/codon_start=1" in CDS feature, if start and stop position of feature is uncertain (i.e., <100..>200).
-
-1.b. With gene and exon features than are less than 15 nt long, the annotation should be dropped from the output.
-
-2. Add a function that automatically removes all sequences that consist only of Ns (or ?s).
-
-3. Add a function to compensate the contraction of an annotation due to the identification of an internal stop codon (see line 304 in Annonex2embl.py)
+1. Add a function to compensate the contraction of an annotation due to the identification of an internal stop codon (see line 304 in Annonex2embl.py)
 
 > Comment: Since "CkOps.TranslCheck().transl_and_quality_of_transl()" shortens annotations to the first internal stop codon encountered, the subsequent intron or IGS needs to be extended towards 5' to compensate. This can be a general function without a priori info passed to it. The important aspect is that only the SUBSEQUENT feature (if it is an intron or an IGS!) can be extended; all other features cannot be extended and need to produce a warning.
 
@@ -58,11 +52,11 @@ Does a gap in the annotations exist?
   If no, continue without action.
 ```
 
-4. Add a function to read in if a charset is forward or reverse and to adjust the info in the feature table.
+2. Add a function to read in if a charset is forward or reverse and to adjust the info in the feature table.
 
-5. Add a function that removes the accession number from the AC line ("AC   AC0663; SV 1; ..." --> "AC   XXX; SV 1; ...") and from the ID line ("ID   AC0663;" --> "ID   XXX;")
+3. Add a function that removes the accession number from the AC line ("AC   AC0663; SV 1; ..." --> "AC   XXX; SV 1; ...") and from the ID line ("ID   AC0663;" --> "ID   XXX;")
 
-6. Add a function that automatically generates a [manifest file](https://ena-docs.readthedocs.io/en/latest/cli_01.html#manifest-file-types)
+4. Add a function that automatically generates a [manifest file](https://ena-docs.readthedocs.io/en/latest/cli_01.html#manifest-file-types)
 
 <!---
 NOT NECCESARY AT THIS POINT
@@ -81,9 +75,8 @@ NOT NECCESARY AT THIS POINT
 #### Testing for development
 To run the unittests outside of 'python setup.py test':
 ```
-python -m unittest discover -s /home/michael_science/git/michaelgruenstaeudl_annonex2embl/tests -p "*_test.py"
+python -m unittest discover -s annonex2embl/tests -p "*_test.py"
 ```
 
 ## CHANGELOG
 See [`CHANGELOG.md`](CHANGELOG.md) for a list of recent changes to the software.
-

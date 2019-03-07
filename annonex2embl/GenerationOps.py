@@ -224,7 +224,7 @@ class GenerateSeqFeature:
             # Add a function to add "/codon_start=1" in CDS feature,
             # if start and stop position of feature is uncertain
             # (i.e., <100..>200).
-            if not feature_seq.startswith(GlobVars.nex2ena_start_codon):
+            if (not feature_seq.startswith(GlobVars.nex2ena_start_codon)) and (all([not feature_seq.endswith(c) for c in GlobVars.nex2ena_stop_codons])):
                 quals['codon_start'] = 1
         if feature_type == 'gap':
             quals['estimated_length'] = str(feature_loc.end.position-feature_loc.start.position)
