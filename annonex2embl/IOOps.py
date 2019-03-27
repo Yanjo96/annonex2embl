@@ -36,7 +36,7 @@ import pdb
 ###########
 
 class Inp:
-    ''' This class contains functions to conduct miscellaneous input 
+    ''' This class contains functions to conduct miscellaneous input
         operations.
     Args:
         [specific to function]
@@ -55,7 +55,7 @@ class Inp:
         return fn
 
     def repl_fileend(self, fn, new_end):
-        ''' This function replaces the file ending (e.g. ".csv") with a 
+        ''' This function replaces the file ending (e.g. ".csv") with a
         different ending. '''
         return fn[:fn.rfind('.')] + '.' + new_end
 
@@ -96,7 +96,7 @@ class Outp:
 
     def write_EntryUpload(self, seq_record, outp_handle, eusubm_bool):
         ''' This function writes a seqRecord in ENA format for a submission
-            via Entry Upload. Upon request (eusubm_bool), it also masks the ID and AC 
+            via Entry Upload. Upon request (eusubm_bool), it also masks the ID and AC
             lines as requested by ENA for submissions.
         Args:
             seq_record (obj)

@@ -1,0 +1,20 @@
+#NEXUS
+
+[Foo Bar Baz Qux]
+[Foo Bar Baz Qux]
+
+BEGIN DATA;
+DIMENSIONS NTAX=1 NCHAR=18;
+FORMAT DATATYPE=DNA GAP=- MISSING=?;
+
+MATRIX
+reverse  AGGAAATTTCCCGGGTAA
+;
+END;
+
+BEGIN SETS;
+CHARSET foo_misc_feature_reverse = 1-18;
+END;
+
+
+[Foo Bar Baz Qux]

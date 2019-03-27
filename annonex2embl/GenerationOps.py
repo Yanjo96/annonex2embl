@@ -229,6 +229,8 @@ class GenerateSeqFeature:
         if feature_type == 'gap':
             quals['estimated_length'] = str(feature_loc.end.position-feature_loc.start.position)
             #quals['estimated_length'] = str(feature_loc.end.real-feature_loc.start.real+1)
+        # 4. Add a function to read in if a charset is forward or reverse and to adjust the info in the feature table.
+        #if
         seq_feature = SeqFeature.SeqFeature(
             feature_loc,
             id=feature_name,

@@ -118,8 +118,10 @@ nex2ena_valid_INSDC_featurekeys = [
 # http://www.insdc.org/files/feature_table.html#7.3.1
 #global nex2ena_valid_INSDC_organelle
 nex2ena_valid_INSDC_organelle = [
-    'chromatophore', 'hydrogenosome', 'mitochondrion', 'nucleomorph', 
+    'chromatophore', 'hydrogenosome', 'mitochondrion', 'nucleomorph',
     'plastid', 'mitochondrion:kinetoplast', 'plastid:chloroplast',
     'plastid:apicoplast', 'plastid:chromoplast', 'plastid:cyanelle',
     'plastid:leucoplast', 'plastid:proplastid']
 
+nex2ena_valid_orientations = [
+    'forward','reverse']

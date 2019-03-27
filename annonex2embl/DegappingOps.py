@@ -31,18 +31,18 @@ import pdb
 ###########
 
 class AddGapFeature:
-    ''' This class contains a function that identifies a stretch of Ns 
-        in an input sequence and automatically adds a gap charset in 
+    ''' This class contains a function that identifies a stretch of Ns
+        in an input sequence and automatically adds a gap charset in
         its position.
     Args:
-        seq (str):      a string that represents an aligned, degapped 
+        seq (str):      a string that represents an aligned, degapped
                         DNA sequence; example: "ATGNNNC"
-        charsets (dict):a dictionary with gene names (str) as keys and lists 
-                        of nucleotide positions (list) as values; example: 
+        charsets (dict):a dictionary with gene names (str) as keys and lists
+                        of nucleotide positions (list) as values; example:
                         {"gene_1":[0,1],"gene_2":[2,3,4]}
     Returns:
-        tupl.   The return consists of the input sequence and the 
-                corresponding charsets (plus a gap charset, if 
+        tupl.   The return consists of the input sequence and the
+                corresponding charsets (plus a gap charset, if
                 appropriate); example: (degapped_seq, degapped_charsets)
     Raises:
         currently nothing
@@ -53,7 +53,7 @@ class AddGapFeature:
         self.charsets = charsets
 
     def add(self):
-        ''' This function was developed while reviewing the 
+        ''' This function was developed while reviewing the
             following answer on SO:
             https://stackoverflow.com/questions/25211905/determine-length-of-polypurine-tract
         '''
@@ -73,20 +73,20 @@ class AddGapFeature:
         return seq, annotations
 
 class DegapButMaintainAnno:
-    ''' This class contains a function to degap DNA sequences while 
-        maintaining annotations. Specifically, the functions remove 
-        dashes from strings while maintaining annotations on these 
-        strings. Only some of the implementations work if the charsets 
+    ''' This class contains a function to degap DNA sequences while
+        maintaining annotations. Specifically, the functions remove
+        dashes from strings while maintaining annotations on these
+        strings. Only some of the implementations work if the charsets
         are overlapping.
     Args:
         seq (str):      a string that represents an aligned DNA sequence;
                         example: "ATG-C"
-        charsets (dict):a dictionary with gene names (str) as keys and lists 
-                        of nucleotide positions (list) as values; example: 
+        charsets (dict):a dictionary with gene names (str) as keys and lists
+                        of nucleotide positions (list) as values; example:
                         {"gene_1":[0,1],"gene_2":[2,3,4]}
     Returns:
-        tupl.   The return consists of the degapped sequence and the 
-                corresponding degapped charsets; example: 
+        tupl.   The return consists of the degapped sequence and the
+                corresponding degapped charsets; example:
                 (degapped_seq, degapped_charsets)
     Raises:
         currently nothing
@@ -98,7 +98,7 @@ class DegapButMaintainAnno:
         self.charsets = charsets
 
     def degap(self):
-        ''' This function works on overlapping charsets and is preferable over 
+        ''' This function works on overlapping charsets and is preferable over
         "degap_legacy".
         Source: http://stackoverflow.com/questions/35233714/
         maintaining-overlapping-annotations-while-removing-dashes-from-string
@@ -127,12 +127,12 @@ class RmAmbigsButMaintainAnno:
     Args:
         seq (str):      a string that represents an aligned DNA sequence;
                         example: "NNATGCNNN"
-        charsets (dict):a dictionary with gene names (str) as keys and lists 
-                        of nucleotide positions (list) as values; example: 
+        charsets (dict):a dictionary with gene names (str) as keys and lists
+                        of nucleotide positions (list) as values; example:
                         {"gene_1":[0,1,2,3],"gene_2":[4,5,6,7,8]}
     Returns:
-        tupl.   The return consists of the shortened DNA sequence and 
-                the corresponding shortened charsets; example: 
+        tupl.   The return consists of the shortened DNA sequence and
+                the corresponding shortened charsets; example:
                 (shortened_seq, shortened_charsets)
     Raises:
         currently nothing

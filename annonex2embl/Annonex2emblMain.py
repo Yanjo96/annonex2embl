@@ -55,9 +55,9 @@ import pdb
 #############
 # FUNCTIONS #
 #############
-csv = "examples/input/fuzzy.csv"
-nex = "examples/input/fuzzy.nex"
-out = "examples/output/fuzzy.embl"
+csv = "examples/input/reverse.csv"
+nex = "examples/input/reverse.nex"
+out = "examples/output/reverse.embl"
 
 def annonex2embl(path_to_nex,
                  path_to_csv,
@@ -94,6 +94,8 @@ def annonex2embl(path_to_nex,
             parse_nexus_file(path_to_nex)
     except ME.MyException as e:
         sys.exit('%s annonex2embl ERROR: %s' % ('\n', e))
+
+    #print charsets_global
 
 ########################################################################
 
@@ -140,7 +142,7 @@ def annonex2embl(path_to_nex,
     charset_dict = {}
     for charset_name in charsets_global.keys():
         try:
-            charset_sym, charset_type, charset_product = PrOps.\
+            charset_sym, charset_type, charset_orient, charset_product = PrOps.\
                 ParseCharsetName(charset_name, email_addr).parse()
         except ME.MyException as e:
             sys.exit('%s annonex2embl ERROR: %s' % ('\n',
@@ -227,7 +229,6 @@ def annonex2embl(path_to_nex,
             AddGapFeature(seq_nogaps, charsets_degapped).add()
         # TFL assigns the deambiged and degapped sequence back
         seq_record.seq = seq_final
-
 ####################################
 
 # 6.4. GENERATE SEQFEATURE 'SOURCE' AND TEST TAXON NAME AGAINST
@@ -282,7 +283,6 @@ def annonex2embl(path_to_nex,
                 seq_feature = GnOps.GenerateSeqFeature().regular_feat(
                     charset_sym, charset_type, location_object, transl_table,
                     seq, charset_product)
-
                 seq_record.features.append(seq_feature)
 
 ####################################

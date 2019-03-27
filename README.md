@@ -52,7 +52,7 @@ Does a gap in the annotations exist?
   If no, continue without action.
 ```
 
-2. Add a function to read in if a charset is forward or reverse and to adjust the info in the feature table.
+2. Add a function to read in if a charset is forward or reverse and to adjust the info in the feature table. eg join(complement(69611..69724),139856..140087)
 
 3. Add a function that removes the accession number from the AC line ("AC   AC0663; SV 1; ..." --> "AC   XXX; SV 1; ...") and from the ID line ("ID   AC0663;" --> "ID   XXX;")
 

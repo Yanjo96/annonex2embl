@@ -299,56 +299,49 @@ class ParseCharsetName:
         self.email_addr = email_addr
 
     @staticmethod
-    def _extract_charset_type(charset_name):
-        ''' An internal static function to extract the charset type from a
-        string. '''
-        fk_present = [fk for fk in GlobVars.nex2ena_valid_INSDC_featurekeys
-                      if fk in charset_name]
-        if not fk_present:
-            raise ME.MyException(
-                '%s annonex2embl ERROR: No feature '
+    def _extract_charstet_information(charset_name):
+        ''' An internal static function to extract
+        charset_sym, charset_type and charset_orient from a string
+        '''
+        charset = charset_name.split("_")
+        charset_sym = charset[0]
+        i = 0
+        try:
+            if charset[1] in GlobVars.nex2ena_valid_INSDC_featurekeys:
+                charset_type = charset[1]
+            elif charset[1] + "_" + charset[2] in GlobVars.nex2ena_valid_INSDC_featurekeys:
+                charset_type = charset[1] + "_" + charset[2]
+                i = 1
+            else:
+                raise ME.MyException('%s annonex2embl ERROR: No feature '
                 'key encountered in the name of charset `%s`.' %
                 ('\n', charset_name))
-        if len(fk_present) > 1:
-            raise ME.MyException(
-                '%s annonex2embl ERROR: More than '
-                'one feature key encountered in the name of charset '
-                '`%s`.' %
-                ('\n', charset_name))
-        charset_type = fk_present[0]
-        return charset_type
-
-    @staticmethod
-    def _extract_charset_sym(charset_name, charset_type):
-        ''' An internal static function to extract the charset symbol from a
-        string. '''
+        except:
+            raise ME.MyException('%s annonex2embl ERROR: No feature '
+            'key encountered in the name of charset `%s`.' %
+            ('\n', charset_name))
         try:
-            charset_sym = charset_name.replace('_'+charset_type, "")
-        except BaseException:
-            raise ME.MyException(
-                '%s annonex2embl ERROR: No charset '
-                'symbol encountered in the name of charset `%s`.' %
+            if len(charset) == 2+i:
+                charset_orient = "forward"
+            elif charset[2+i] in GlobVars.nex2ena_valid_orientations:
+                charset_orient = charset[2+i]
+            else:
+                raise ME.MyException('%s annonex2embl ERROR: No valid '
+                'orientation encountered in the name of charset `%s`.' %
                 ('\n', charset_name))
-        #charset_sym = charset_sym.strip('_')
-        #charset_sym = charset_sym.rstrip('_')  # Remove trailing underscores
-        return charset_sym
+        except:
+            raise ME.MyException('%s annonex2embl ERROR: No valid '
+            'orientation encountered in the name of charset `%s`.' %
+            ('\n', charset_name))
+        return (charset_sym, charset_type, charset_orient)
 
     def parse(self):
         ''' This function parses the charset_name.
         Returns:
             tupl.   The return consists of three strings in the order
-                    "charset_sym, charset_type, charset_product"
+                    "charset_sym, charset_type, charset_orient, charset_product"
         '''
-        try:
-            charset_type = ParseCharsetName._extract_charset_type(
-                self.charset_name)
-        except ME.MyException as e:
-            raise e
-        try:
-            charset_sym = ParseCharsetName._extract_charset_sym(
-                self.charset_name, charset_type)
-        except ME.MyException as e:
-            raise e
+        charset_sym, charset_type, charset_orient = ParseCharsetName._extract_charstet_information(self.charset_name)
         entrez_handle = GetEntrezInfo(self.email_addr)
         if charset_type == 'CDS' or charset_type == 'gene':
             try:
@@ -358,4 +351,4 @@ class ParseCharsetName:
                 raise e
         else:
             charset_product = None
-        return (charset_sym, charset_type, charset_product)
+        return (charset_sym, charset_type, charset_orient, charset_product)

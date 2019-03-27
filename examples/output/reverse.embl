@@ -1,0 +1,539 @@
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 30 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..30
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..>30
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /codon_start=1
+FT                   /translation="NTKFGPLMIV"
+FT                   /transl_table=11
+XX
+SQ   Sequence 30 BP; 9 A; 5 C; 6 G; 10 T; 0 other;
+     aatactaaat ttgggcccct gatgattgta                                         30
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 30 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..30
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+XX
+SQ   Sequence 30 BP; 9 A; 5 C; 6 G; 10 T; 0 other;
+     aatactaaat ttgggcccct gatgattgta                                         30
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 30 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..30
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+XX
+SQ   Sequence 30 BP; 9 A; 5 C; 6 G; 10 T; 0 other;
+     aatactaaat ttgggcccct gatgattgta                                         30
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 30 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..30
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+XX
+SQ   Sequence 30 BP; 9 A; 5 C; 6 G; 10 T; 0 other;
+     aatactaaat ttgggcccct gatgattgta                                         30
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="TKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 4 C; 4 G; 4 T; 0 other;
+     acgaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="MKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 4 G; 5 T; 0 other;
+     atgaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   CDS             <1..18
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="RKFPG"
+FT                   /transl_table=11
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   misc_feature    1..18
+FT                   /note="foo"
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   misc_feature    1..18
+FT                   /note="foo"
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//
+ID   reverse; SV 1; linear; genomic DNA; ; PLN; 18 BP.
+XX
+AC   reverse;
+XX
+DE   reverse chloroplast trnR-atpA intergenic spacer, isolate reverse
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..18
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="reverse"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="reverse"
+FT   misc_feature    1..18
+FT                   /note="foo"
+XX
+SQ   Sequence 18 BP; 6 A; 3 C; 5 G; 4 T; 0 other;
+     aggaaatttc ccgggtaa                                                      18
+//

@@ -7,11 +7,6 @@ XX
 OS   .
 OC   .
 XX
-RN   [1]
-RA   Grube, Claire
-RT   ;
-RL   Submitted (07-MAR-2019) to the INSDC.
-XX
 FH   Key             Location/Qualifiers
 FH
 FT   source          1..38
@@ -21,11 +16,6 @@ FT                   /isolate="fuzzy"
 FT                   /note="Tax.Authority: Author_1"
 FT                   /specimen_voucher="Herbarium_1: Collection#"
 FT                   /organism="fuzzy"
-FT   gene            join(<4..12,17..25,28..36)
-FT                   /note="foo"
-FT                   /product="forkhead box i1"
-FT   exon            join(4..12,17..25,28..36)
-FT                   /note="foo"
 FT   CDS             join(<4..12,17..25,28..36)
 FT                   /note="foo"
 FT                   /product="forkhead box i1"
@@ -44,10 +34,59 @@ XX
 OS   .
 OC   .
 XX
-RN   [1]
-RA   Grube, Claire
-RT   ;
-RL   Submitted (07-MAR-2019) to the INSDC.
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="not_fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="not_fuzzy"
+FT   CDS             join(4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="MDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 14 A; 5 C; 8 G; 11 T; 0 other;
+     taaatggata tatagagtaa gcattccgga ctttaacg                                38
+//
+ID   fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   fuzzy;
+XX
+DE   fuzzy chloroplast trnR-atpA intergenic spacer, isolate fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="fuzzy"
+FT   CDS             join(<4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="LDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 12 A; 6 C; 8 G; 12 T; 0 other;
+     taattggata tatagagtca gcattccgga ctttaacg                                38
+//
+ID   not_fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   not_fuzzy;
+XX
+DE   not_fuzzy chloroplast trnR-atpA intergenic spacer, isolate not_fuzzy
+XX
+OS   .
+OC   .
 XX
 FH   Key             Location/Qualifiers
 FH
@@ -58,17 +97,306 @@ FT                   /isolate="not_fuzzy"
 FT                   /note="Tax.Authority: Author_1"
 FT                   /specimen_voucher="Herbarium_1: Collection#"
 FT                   /organism="not_fuzzy"
-FT   gene            join(4..12,17..25,28..36)
-FT                   /note="foo"
-FT                   /product="forkhead box i1"
-FT   exon            join(4..12,17..25,28..36)
-FT                   /note="foo"
 FT   CDS             join(4..12,17..25,28..36)
 FT                   /note="foo"
 FT                   /product="forkhead box i1"
 FT                   /translation="MDIVSIGL"
 FT                   /transl_table=11
 XX
-SQ   Sequence 38 BP; 13 A; 6 C; 8 G; 11 T; 0 other;
-     taaatggata tatagagtca gcattccgga ctttaacg                                38
+SQ   Sequence 38 BP; 14 A; 5 C; 8 G; 11 T; 0 other;
+     taaatggata tatagagtaa gcattccgga ctttaacg                                38
+//
+ID   fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   fuzzy;
+XX
+DE   fuzzy chloroplast trnR-atpA intergenic spacer, isolate fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="fuzzy"
+FT   CDS             join(<4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="LDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 12 A; 6 C; 8 G; 12 T; 0 other;
+     taattggata tatagagtca gcattccgga ctttaacg                                38
+//
+ID   not_fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   not_fuzzy;
+XX
+DE   not_fuzzy chloroplast trnR-atpA intergenic spacer, isolate not_fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="not_fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="not_fuzzy"
+FT   CDS             join(4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="MDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 14 A; 5 C; 8 G; 11 T; 0 other;
+     taaatggata tatagagtaa gcattccgga ctttaacg                                38
+//
+ID   fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   fuzzy;
+XX
+DE   fuzzy chloroplast trnR-atpA intergenic spacer, isolate fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="fuzzy"
+FT   CDS             join(<4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="LDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 12 A; 6 C; 8 G; 12 T; 0 other;
+     taattggata tatagagtca gcattccgga ctttaacg                                38
+//
+ID   not_fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   not_fuzzy;
+XX
+DE   not_fuzzy chloroplast trnR-atpA intergenic spacer, isolate not_fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="not_fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="not_fuzzy"
+FT   CDS             join(4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="MDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 14 A; 5 C; 8 G; 11 T; 0 other;
+     taaatggata tatagagtaa gcattccgga ctttaacg                                38
+//
+ID   fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   fuzzy;
+XX
+DE   fuzzy chloroplast trnR-atpA intergenic spacer, isolate fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="fuzzy"
+FT   CDS             join(<4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="LDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 12 A; 6 C; 8 G; 12 T; 0 other;
+     taattggata tatagagtca gcattccgga ctttaacg                                38
+//
+ID   not_fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   not_fuzzy;
+XX
+DE   not_fuzzy chloroplast trnR-atpA intergenic spacer, isolate not_fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="not_fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="not_fuzzy"
+FT   CDS             join(4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="MDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 14 A; 5 C; 8 G; 11 T; 0 other;
+     taaatggata tatagagtaa gcattccgga ctttaacg                                38
+//
+ID   fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   fuzzy;
+XX
+DE   fuzzy chloroplast trnR-atpA intergenic spacer, isolate fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="fuzzy"
+FT   CDS             <3..>19
+FT                   /note="apoe"
+FT                   /product="apolipoprotein E"
+FT                   /codon_start=1
+FT                   /translation="IGYIE"
+FT                   /transl_table=11
+FT   CDS             join(<4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="LDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 12 A; 6 C; 8 G; 12 T; 0 other;
+     taattggata tatagagtca gcattccgga ctttaacg                                38
+//
+ID   not_fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   not_fuzzy;
+XX
+DE   not_fuzzy chloroplast trnR-atpA intergenic spacer, isolate not_fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="not_fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="not_fuzzy"
+FT   CDS             <3..>19
+FT                   /note="apoe"
+FT                   /product="apolipoprotein E"
+FT                   /codon_start=1
+FT                   /translation="NGYIE"
+FT                   /transl_table=11
+FT   CDS             join(4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="MDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 14 A; 5 C; 8 G; 11 T; 0 other;
+     taaatggata tatagagtaa gcattccgga ctttaacg                                38
+//
+ID   fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   fuzzy;
+XX
+DE   fuzzy chloroplast trnR-atpA intergenic spacer, isolate fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="fuzzy"
+FT   CDS             <3..>19
+FT                   /note="apoe"
+FT                   /product="apolipoprotein E"
+FT                   /codon_start=1
+FT                   /translation="IGYIE"
+FT                   /transl_table=11
+FT   CDS             join(<4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="LDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 12 A; 6 C; 8 G; 12 T; 0 other;
+     taattggata tatagagtca gcattccgga ctttaacg                                38
+//
+ID   not_fuzzy; SV 1; linear; genomic DNA; ; PLN; 38 BP.
+XX
+AC   not_fuzzy;
+XX
+DE   not_fuzzy chloroplast trnR-atpA intergenic spacer, isolate not_fuzzy
+XX
+OS   .
+OC   .
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..38
+FT                   /mol_type="genomic DNA"
+FT                   /country="Country_1: Area_1"
+FT                   /isolate="not_fuzzy"
+FT                   /note="Tax.Authority: Author_1"
+FT                   /specimen_voucher="Herbarium_1: Collection#"
+FT                   /organism="not_fuzzy"
+FT   CDS             <3..>19
+FT                   /note="apoe"
+FT                   /product="apolipoprotein E"
+FT                   /codon_start=1
+FT                   /translation="NGYIE"
+FT                   /transl_table=11
+FT   CDS             join(4..12,17..25,28..36)
+FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /translation="MDIVSIGL"
+FT                   /transl_table=11
+XX
+SQ   Sequence 38 BP; 14 A; 5 C; 8 G; 11 T; 0 other;
+     taaatggata tatagagtaa gcattccgga ctttaacg                                38
 //
