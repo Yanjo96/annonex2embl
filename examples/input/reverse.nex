@@ -13,7 +13,7 @@ reverse  AGGAAATTTCCCGGGTACTACTACTAA
 END;
 
 BEGIN SETS;
-CHARSET foo_CDS_reverse = 1-18 24-27;
+CHARSET trnKTTT_gene_reverse = 1-18 25-27;
 END;
 
 

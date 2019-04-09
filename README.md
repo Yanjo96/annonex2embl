@@ -15,13 +15,13 @@ The annotations of a NEXUS file are specified via [SETS-block](http://hydrodicty
 #### Example of a complete SETS-BLOCK
 ```
 BEGIN SETS;
-CharSet trnK_intron = 0-928 2531-2813 2849-3152;
-CharSet matK_gene = 929-2530;
-CharSet matK_CDS = 929-2530;    # Accompanying the charset matK_gene
-CharSet trnK_exon = 2814-2848;
-CharSet trnK_CDS = 2814-2848;   # Accompanying the charset trnK_exon
-CharSet psbA_gene = 3153-3200;
-CharSet psbA_CDS = 3153-3200;   # Accompanying the charset psbA_gene
+CHARSET trnK_intron_forward = 0-928 2531-2813 2849-3152;
+CHARSET matK_gene_forward = 929-2530;
+CHARSET matK_CDS_forward = 929-2530;    # Accompanying the charset matK_gene
+CHARSET trnK_exon_reverse = 2814-2848;
+CHARSET trnK_CDS_reverse = 2814-2848;   # Accompanying the charset trnK_exon
+CHARSET psbA_gene_forward = 3153-3200;
+CHARSET psbA_CDS_forward = 3153-3200;   # Accompanying the charset psbA_gene
 END;
 ```
 

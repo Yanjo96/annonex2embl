@@ -92,7 +92,8 @@ class GenerateFeatLoc:
         else:
             return contiguous_ranges[0]
 
-    def make_reverse_location(self, location_object):
+    def make_location_complement(self, location_object):
+        location_object._set_strand(-1)
         return location_object
 
     def make_start_fuzzy(self, location_object):

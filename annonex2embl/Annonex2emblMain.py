@@ -95,7 +95,6 @@ def annonex2embl(path_to_nex,
     except ME.MyException as e:
         sys.exit('%s annonex2embl ERROR: %s' % ('\n', e))
 
-    #print charsets_global
 
 ########################################################################
 
@@ -239,7 +238,6 @@ def annonex2embl(path_to_nex,
         source_feature = GnOps.GenerateSeqFeature().\
             source_feat(len(seq_record), current_quals, charset_names)
         seq_record.features.append(source_feature)
-
 ####################################
 
 # 6.5. VALIDATE TAXON NAME
@@ -351,7 +349,7 @@ def annonex2embl(path_to_nex,
                         make_end_fuzzy(feature.location)
                 if(charset_orient == 'reverse'):
                     feature.location = GnOps.GenerateFeatLoc().\
-                        make_reverse_location(feature.location)
+                        make_location_complement(feature.location)
 
 # (FUTURE)  Also introduce fuzzy ends to features when those had leading or trailing Ns removed,
 #           because the removed Ns may constitute start of stop codons.
