@@ -300,40 +300,36 @@ class ParseCharsetName:
 
     @staticmethod
     def _extract_charstet_information(charset_name):
-        ''' An internal static function to extract
-        charset_sym, charset_type and charset_orient from a string
-        '''
-        charset = charset_name.split("_")
-        charset_sym = charset[0]
-        i = 0
+        charset_orient = False
+        charset_type = False
+        charset_sym = False
+
+        orient_present = [ori for ori in GlobVars.nex2ena_valid_orientations if ori in charset_name]
+        if(len(orient_present) == 0):
+             charset_orient = 'forward'
+        elif(len(orient_present) == 1):
+            charset_orient = orient_present[0]
+            charset_name = ''.join(charset_name.split(orient_present[0]))
+        else:
+            raise ME.MyException('Zuviele Informationen bezueglich der Orientierung')
+
+        type_present = [typ for typ in GlobVars.nex2ena_valid_INSDC_featurekeys if typ in charset_name]
+        if(len(type_present) == 0):
+            raise ME.MyException("Keine gueltigen feature keys")
+        elif(len(type_present) == 1):
+            charset_type = type_present[0]
+            charset_name = ''.join(charset_name.split(type_present[0]))
+        else:
+            raise ME.MyException('Zuviele Informationen bezueglich der Features')
+
+
         try:
-            if charset[1] in GlobVars.nex2ena_valid_INSDC_featurekeys:
-                charset_type = charset[1]
-            elif charset[1] + "_" + charset[2] in GlobVars.nex2ena_valid_INSDC_featurekeys:
-                charset_type = charset[1] + "_" + charset[2]
-                i = 1
-            else:
-                raise ME.MyException('%s annonex2embl ERROR: No feature '
-                'key encountered in the name of charset `%s`.' %
-                ('\n', charset_name))
+            charset_sym = charset_name.strip('_')
         except:
-            raise ME.MyException('%s annonex2embl ERROR: No feature '
-            'key encountered in the name of charset `%s`.' %
-            ('\n', charset_name))
-        try:
-            if len(charset) == 2+i:
-                charset_orient = "forward"
-            elif charset[2+i] in GlobVars.nex2ena_valid_orientations:
-                charset_orient = charset[2+i]
-            else:
-                raise ME.MyException('%s annonex2embl ERROR: No valid '
-                'orientation encountered in the name of charset `%s`.' %
-                ('\n', charset_name))
-        except:
-            raise ME.MyException('%s annonex2embl ERROR: No valid '
-            'orientation encountered in the name of charset `%s`.' %
-            ('\n', charset_name))
+            raise ME.MyException('Da ist etwas schief gelaufen')
+
         return (charset_sym, charset_type, charset_orient)
+
 
     def parse(self):
         ''' This function parses the charset_name.

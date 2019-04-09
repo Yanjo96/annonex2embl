@@ -92,6 +92,9 @@ class GenerateFeatLoc:
         else:
             return contiguous_ranges[0]
 
+    def make_reverse_location(self, location_object):
+        return location_object
+
     def make_start_fuzzy(self, location_object):
         ''' This function makes the start position of location
             objects fuzzy.
@@ -224,7 +227,7 @@ class GenerateSeqFeature:
             # Add a function to add "/codon_start=1" in CDS feature,
             # if start and stop position of feature is uncertain
             # (i.e., <100..>200).
-            if (not feature_seq.startswith(GlobVars.nex2ena_start_codon)) and (all([not feature_seq.endswith(c) for c in GlobVars.nex2ena_stop_codons])):
+            if (not feature_seq.startswith(GlobVars.nex2ena_start_codon)) or (all([not feature_seq.endswith(c) for c in GlobVars.nex2ena_stop_codons])):
                 quals['codon_start'] = 1
         if feature_type == 'gap':
             quals['estimated_length'] = str(feature_loc.end.position-feature_loc.start.position)

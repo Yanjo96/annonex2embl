@@ -349,6 +349,9 @@ def annonex2embl(path_to_nex,
                         for c in GlobVars.nex2ena_stop_codons]):
                     feature.location = GnOps.GenerateFeatLoc().\
                         make_end_fuzzy(feature.location)
+                if(charset_orient == 'reverse'):
+                    feature.location = GnOps.GenerateFeatLoc().\
+                        make_reverse_location(feature.location)
 
 # (FUTURE)  Also introduce fuzzy ends to features when those had leading or trailing Ns removed,
 #           because the removed Ns may constitute start of stop codons.
