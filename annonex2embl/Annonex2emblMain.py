@@ -84,7 +84,7 @@ def annonex2embl(path_to_nex,
 ########################################################################
 
 # 1. OPEN OUTFILE
-    outp_handle = open(path_to_outfile, 'a')
+    outp_handle = open(path_to_outfile + ".tmp", 'a')
 
 ########################################################################
 
@@ -368,6 +368,10 @@ def annonex2embl(path_to_nex,
 ########################################################################
 
 # 8. POST-PROCESSING OF EntryUpload FILES
+    IOOps.Outp().postpare_embl_file(path_to_outfile)
+    os.remove(path_to_nex + ".tmp")
+    os.remove(path_to_outfile + ".tmp")
+
 # 8.1. Addition of author name
     date_today = datetime.date.today().strftime("%d-%b-%Y").upper()
     os.system("sed -i $'s/FH   Key             Location\/Qualifiers/" +
@@ -380,6 +384,8 @@ def annonex2embl(path_to_nex,
 # 8.2. Corrections
     os.system("sed -i 's/\; DNA\;/\; genomic DNA\;/g' "+path_to_outfile)
 
+# 9. Create Manifest file
+    IOOps.Outp().create_manifest_file(path_to_outfile, "study", "name", "Hallo")
 
 
 if __name__ == "__main__":

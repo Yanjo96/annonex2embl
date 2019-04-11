@@ -194,8 +194,12 @@ class TranslCheck:
                                     transl_table).check()
             if feature.type == 'CDS':
                 feature.qualifiers["translation"] = transl
+                # TODO
+                # Wenn Ende der urspruenglichen CDS  Annotation + 1 die anfangsposition eines IGS oder intron ist
+                # dann verlaengere diese anfangsposition in Richtung 5' (links) mit der Laenge der Differenz
+                # zwischen alter und neuer Translation
             if feature.type == 'exon' or feature.type == 'gene':
-                # With gene and exon features than are less than 15 nt long,
+                # With gene and exon features that are less than 15 nt long,
                 # the annotation should be dropped from the output.
                 if len([base for base in loc]) < 15:
                     raise ME.MyException()
