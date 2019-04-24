@@ -59,19 +59,6 @@ class Inp:
         different ending. '''
         return fn[:fn.rfind('.')] + '.' + new_end
 
-    def prepare_nexus_file(self, path_to_nex):
-        nex = open(path_to_nex,"r")
-        nextmp = open(path_to_nex + ".tmp", "w")
-        for line in nex.readlines():
-            if line[:7].lower() == "charset":
-                toConvert = line.split("=")
-                toConvert[0] = toConvert[0].replace("-","$")
-                nextmp.write("=".join(toConvert))
-            else:
-                nextmp.write(line)
-
-        nex.close()
-        nextmp.close()
 
     def parse_csv_file(self, path_to_csv):
         ''' This function parses a csv file. '''
@@ -87,10 +74,11 @@ class Inp:
         ''' This function parses a NEXUS file. '''
         try:
             aln = Nexus.Nexus()
-            self.prepare_nexus_file(path_to_nex)
-            aln.read(path_to_nex + ".tmp")
+            aln.read(path_to_nex)
             charsets = aln.charsets
             matrix = aln.matrix
+        except Nexus.NexusError as ne:
+            raise ne
         except:
             raise ME.MyException('Parsing of .nex-file unsuccessful.')
         return (charsets, matrix)
@@ -151,18 +139,11 @@ class Outp:
 
         # return something?
 
-    def postpare_embl_file(self, path_to_outfile):
-        embltmp = open(path_to_outfile + ".tmp", "r")
-        embl = open(path_to_outfile, "a")
-        for line in embltmp:
-            embl.write(line.replace("$","-"))
-        embltmp.close()
-        embl.close()
-
     def create_manifest_file(self, path_to_outfile, study, name, description = ""):
-        manifest = open(path_to_outfile + ".manifest", "w")
+        test = ''.join(path_to_outfile.split('.')[:-1]) + '.manifest'
+        manifest = open(test, "w")
         manifest.write("STUDY\t" + study + "\n")
         manifest.write("NAME\t" + name + "\n")
         if(description != ""):
-            manifest.write("FLATFILE\t" + description + "\n")
+            manifest.write("Description\t" + description + "\n")
         manifest.close()

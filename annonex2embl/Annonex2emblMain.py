@@ -66,6 +66,9 @@ def annonex2embl(path_to_nex,
                  author_names,
                  path_to_outfile,
 
+                 manifest_study='',
+                 manifest_name='',
+                 manifest_description='',
                  tax_check='False',
                  linemask='False',
                  topology='linear',
@@ -84,7 +87,7 @@ def annonex2embl(path_to_nex,
 ########################################################################
 
 # 1. OPEN OUTFILE
-    outp_handle = open(path_to_outfile + ".tmp", 'a')
+    outp_handle = open(path_to_outfile, 'a')
 
 ########################################################################
 
@@ -347,7 +350,7 @@ def annonex2embl(path_to_nex,
                         for c in GlobVars.nex2ena_stop_codons]):
                     feature.location = GnOps.GenerateFeatLoc().\
                         make_end_fuzzy(feature.location)
-                if(charset_orient == 'reverse'):
+                if(charset_orient == 'rev'):
                     feature.location = GnOps.GenerateFeatLoc().\
                         make_location_complement(feature.location)
 
@@ -368,10 +371,6 @@ def annonex2embl(path_to_nex,
 ########################################################################
 
 # 8. POST-PROCESSING OF EntryUpload FILES
-    IOOps.Outp().postpare_embl_file(path_to_outfile)
-    os.remove(path_to_nex + ".tmp")
-    os.remove(path_to_outfile + ".tmp")
-
 # 8.1. Addition of author name
     date_today = datetime.date.today().strftime("%d-%b-%Y").upper()
     os.system("sed -i $'s/FH   Key             Location\/Qualifiers/" +
@@ -385,7 +384,10 @@ def annonex2embl(path_to_nex,
     os.system("sed -i 's/\; DNA\;/\; genomic DNA\;/g' "+path_to_outfile)
 
 # 9. Create Manifest file
-    IOOps.Outp().create_manifest_file(path_to_outfile, "study", "name", "Hallo")
+    if(manifest_study!='' and manifest_name!=''):
+        IOOps.Outp().create_manifest_file(path_to_outfile, manifest_study, manifest_name, manifest_description)
+    elif(manifest_study!='' or manifest_name!=''):
+        raise ME.MyException('Error by creating manifest file. Please give both information -ms study name and -mn your name.')
 
 
 if __name__ == "__main__":
@@ -396,6 +398,9 @@ if __name__ == "__main__":
                  "Grube, Claire",
                  out,
 
+                 'My Study',
+                 'My Name',
+                 'My Description',
                  'False',
                  'False',
                  'linear',

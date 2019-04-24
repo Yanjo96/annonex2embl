@@ -124,4 +124,4 @@ nex2ena_valid_INSDC_organelle = [
     'plastid:leucoplast', 'plastid:proplastid']
 
 nex2ena_valid_orientations = [
-    'forward','reverse']
+    'forw','rev']

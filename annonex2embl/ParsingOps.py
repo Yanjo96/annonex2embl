@@ -306,7 +306,7 @@ class ParseCharsetName:
 
         orient_present = [ori for ori in GlobVars.nex2ena_valid_orientations if ori in charset_name]
         if(len(orient_present) == 0):
-             charset_orient = 'forward'
+             charset_orient = 'forw'
         elif(len(orient_present) == 1):
             charset_orient = orient_present[0]
             charset_name = ''.join(charset_name.split(orient_present[0]))
@@ -322,9 +322,8 @@ class ParseCharsetName:
         else:
             raise ME.MyException('Zuviele Informationen bezueglich der Features')
 
-
         try:
-            charset_sym = charset_name.strip('_')
+            charset_sym = charset_name.strip('_').split('_')[0]
         except:
             raise ME.MyException('Da ist etwas schief gelaufen')
 
