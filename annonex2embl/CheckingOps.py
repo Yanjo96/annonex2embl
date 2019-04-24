@@ -86,7 +86,6 @@ class AnnoCheck:
                          transl_without_internStop):
         ''' An internal static function to adjust the feature location if an
             internal stop codon were present. '''
-
         if len(transl_without_internStop) > len(transl_with_internStop):
             # 1. Unnest the nested lists
             contiguous_subsets = [range(e.start.position, e.end.position)

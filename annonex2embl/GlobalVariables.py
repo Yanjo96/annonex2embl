@@ -111,7 +111,8 @@ nex2ena_valid_INSDC_featurekeys = [
     'protein_bind', 'regulatory', 'repeat_region', 'rep_origin',
     'rRNA', 'S_region', 'sig_peptide', 'source', 'stem_loop',
     'STS', 'telomere', 'tmRNA', 'transit_peptide', 'tRNA',
-    'unsure', 'V_region', 'V_segment', 'variation', "3'UTR", "5'UTR"]
+    'unsure', 'V_region', 'V_segment', 'variation', "3'UTR", "5'UTR",
+    "IGS"]
 
 # Valid organelle qualifiers as defined by the International
 # Nucleotide Sequence Database Collection (INSDC)

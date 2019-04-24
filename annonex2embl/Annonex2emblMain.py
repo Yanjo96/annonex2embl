@@ -139,7 +139,6 @@ def annonex2embl(path_to_nex,
                  colored(','.join(not_shared), 'red')))
 
 ########################################################################
-
 # 5. PARSE OUT FEATURE KEY, OBTAIN OFFICIAL GENE NAME AND GENE PRODUCT
     charset_dict = {}
     for charset_name in charsets_global.keys():
@@ -154,7 +153,6 @@ def annonex2embl(path_to_nex,
                                       charset_product)
 
 ########################################################################
-
 # 6. GENERATING SEQ_RECORDS BY LOOPING THROUGH EACH SEQUENCE OF THE ALIGNMENT
 #    Work off the sequences alphabetically.
     for counter, seq_name in enumerate(sorted_seqnames):
@@ -294,20 +292,24 @@ def annonex2embl(path_to_nex,
         sorted_features = sorted(seq_record.features[1:],
                                  key=lambda x: x.location.start.position)
         seq_record.features = [seq_record.features[0]] + sorted_features
-
+        print sorted_features
 ####################################
 
 # 6.8. TRANSLATE AND CHECK QUALITY OF TRANSLATION
         removal_list = []
+        last_seen = ["type", "before", "after"]
         for indx, feature in enumerate(seq_record.features):
             # Check if feature is a coding region
             if feature.type == 'CDS' or feature.type == 'gene':
                 try:
                     # In TFL, features are truncated to the first
                     # internal stop codon, if present.
+                    last_seen[0] = feature.type
+                    last_seen[1] = feature.location
                     feature = CkOps.TranslCheck().\
                         transl_and_quality_of_transl(seq_record,
                                                      feature, transl_table)
+                    last_seen[2] = feature.location
                 except ME.MyException as e:
                     print('%s annonex2embl WARNING: %s Feature `%s` '
                           '(type: `%s`) of sequence `%s` is not saved to '
@@ -316,6 +318,14 @@ def annonex2embl(path_to_nex,
                                        colored(feature.type, 'red'),
                                        colored(seq_record.id, 'red')))
                     removal_list.append(indx)
+            elif feature.type == 'IGS' or feature.type == 'intron':
+                if  last_seen[0] == 'CDS' or last_seen[0] == 'gene':
+                    if not last_seen[1] == last_seen[2]:
+                        print feature.location
+                last_seen = ["type","loc_before","loc_after"]
+            else:
+                last_seen = ["type","loc_before","loc_after"]
+            print last_seen
         # TFL removes the objects in reverse order, because otherwise
         # each removal would shift the indices of subsequent objects
         # to the left.
