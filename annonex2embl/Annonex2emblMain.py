@@ -292,7 +292,6 @@ def annonex2embl(path_to_nex,
         sorted_features = sorted(seq_record.features[1:],
                                  key=lambda x: x.location.start.position)
         seq_record.features = [seq_record.features[0]] + sorted_features
-        print sorted_features
 ####################################
 
 # 6.8. TRANSLATE AND CHECK QUALITY OF TRANSLATION
@@ -321,11 +320,11 @@ def annonex2embl(path_to_nex,
             elif feature.type == 'IGS' or feature.type == 'intron':
                 if  last_seen[0] == 'CDS' or last_seen[0] == 'gene':
                     if not last_seen[1] == last_seen[2]:
-                        print feature.location
+                        feature.location = CkOps.TranslCheck().\
+                                                adjustLocation(feature.location, last_seen[2])
                 last_seen = ["type","loc_before","loc_after"]
             else:
                 last_seen = ["type","loc_before","loc_after"]
-            print last_seen
         # TFL removes the objects in reverse order, because otherwise
         # each removal would shift the indices of subsequent objects
         # to the left.

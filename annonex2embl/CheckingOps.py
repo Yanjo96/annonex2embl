@@ -13,6 +13,7 @@ import GlobalVariables as GlobVars
 
 from Bio.Seq import Seq
 from Bio.SeqFeature import FeatureLocation
+from Bio.SeqFeature import CompoundLocation
 from unidecode import unidecode
 from itertools import chain
 
@@ -174,6 +175,33 @@ class TranslCheck:
 
     def __init__(self):
         pass
+
+    # by checking the translation of a CDS or an gene it may happen that
+    # the location from the CDS or gene had to be adjusted. If after such
+    # a feature a IGS or intron follows it have to be adjust aswell.
+    # This is done by this function
+    def adjustLocation(self, oldLocation, newLocation):
+        start = []
+        end = []
+        start.append(newLocation.end)
+
+        t = oldLocation.start
+        for i in oldLocation:
+            if not i == t:
+                end.append(t)
+                start.append(i)
+                t = i
+            t = t + 1
+        end.append(oldLocation.end)
+
+        locations = []
+        for i in range(len(start)):
+            locations.append(FeatureLocation(start[i],end[i]))
+
+        try:
+            return CompoundLocation(locations)
+        except:
+            return locations[0]
 
     def transl_and_quality_of_transl(self, seq_record, feature, transl_table):
         ''' This function conducts a translation of a coding region and checks
