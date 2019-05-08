@@ -149,7 +149,7 @@ def annonex2embl(path_to_nex,
             sys.exit('%s annonex2embl ERROR: %s' % ('\n',
                     colored(e, 'red')))
 
-        charset_dict[charset_name] = (charset_sym, charset_type,
+        charset_dict[charset_name] = (charset_sym, charset_type, charset_orient,
                                       charset_product)
 
 ########################################################################
@@ -265,12 +265,13 @@ def annonex2embl(path_to_nex,
                 location_object = GnOps.GenerateFeatLoc().make_location(charset_range)
 
 # 6.6.3. Assign a gene product to a gene name, unless it's a gap feature
-                if charset_name[0:3] == "gap":
+                if charset_name[0:4] == "gap":
                     charset_sym = None
                     charset_type = "gap"
+                    charset_orient = "forw"
                     charset_product = None
                 else:
-                    charset_sym, charset_type, charset_product = charset_dict[charset_name]
+                    charset_sym, charset_type, charset_orient, charset_product = charset_dict[charset_name]
 
 # 6.6.4. Generate a regular SeqFeature and append to seq_record.features
 #        Note: The position indices for the stop codon are truncated in
@@ -280,7 +281,7 @@ def annonex2embl(path_to_nex,
                 seq = ''.join(seq)
 
                 seq_feature = GnOps.GenerateSeqFeature().regular_feat(
-                    charset_sym, charset_type, location_object, transl_table,
+                    charset_sym, charset_type, charset_orient, location_object, transl_table,
                     seq, charset_product)
                 seq_record.features.append(seq_feature)
 
@@ -331,13 +332,7 @@ def annonex2embl(path_to_nex,
         for indx in sorted(removal_list, reverse=True):
             seq_record.features.pop(indx)
 
-# (FUTURE)  Since "CkOps.TranslCheck().transl_and_quality_of_transl()"
-#           shortens annotations to the first internal stop codon
-#           encountered, the subsequent intron or IGS needs to be
-#           extended towards 5' to compensate.
-
 ####################################
-
 # 6.9. INTRODUCE FUZZY ENDS
         for feature in seq_record.features:
             # Check if feature is a coding region
@@ -359,9 +354,6 @@ def annonex2embl(path_to_nex,
                         for c in GlobVars.nex2ena_stop_codons]):
                     feature.location = GnOps.GenerateFeatLoc().\
                         make_end_fuzzy(feature.location)
-                if(charset_orient == 'rev'):
-                    feature.location = GnOps.GenerateFeatLoc().\
-                        make_location_complement(feature.location)
 
 # (FUTURE)  Also introduce fuzzy ends to features when those had leading or trailing Ns removed,
 #           because the removed Ns may constitute start of stop codons.

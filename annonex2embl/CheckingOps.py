@@ -12,6 +12,7 @@ import GenerationOps as GnOps
 import GlobalVariables as GlobVars
 
 from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
 from Bio.SeqFeature import FeatureLocation
 from Bio.SeqFeature import CompoundLocation
 from unidecode import unidecode
@@ -120,7 +121,6 @@ class AnnoCheck:
             _transl(to_stop=True) and must consequently be added again
             (see line 137).
         '''
-
         try:
             # Note: TFL must contain "cds=True"; don't delete it
             transl_out = AnnoCheck._transl(self.extract,
@@ -176,6 +176,17 @@ class TranslCheck:
     def __init__(self):
         pass
 
+    # This function extract the sequence from pattern sequence
+    # for a forward and reverse strand
+    def extract(self, feature, seq_record):
+        if feature._get_strand() == 1:
+            return feature.extract(seq_record)
+        else:
+            reverse = SeqRecord("")
+            for i in feature.location.parts[::-1]:
+                reverse.seq = reverse.seq + i.extract(seq_record).seq
+            return reverse
+
     # by checking the translation of a CDS or an gene it may happen that
     # the location from the CDS or gene had to be adjusted. If after such
     # a feature a IGS or intron follows it have to be adjust aswell.
@@ -215,16 +226,13 @@ class TranslCheck:
         Raises:
             feature
         '''
-        extract = feature.extract(seq_record)
+
+        extract = self.extract(feature, seq_record)
         try:
             transl, loc = AnnoCheck(extract.seq, feature, seq_record.id,
                                     transl_table).check()
             if feature.type == 'CDS':
                 feature.qualifiers["translation"] = transl
-                # TODO
-                # Wenn Ende der urspruenglichen CDS  Annotation + 1 die anfangsposition eines IGS oder intron ist
-                # dann verlaengere diese anfangsposition in Richtung 5' (links) mit der Laenge der Differenz
-                # zwischen alter und neuer Translation
             if feature.type == 'exon' or feature.type == 'gene':
                 # With gene and exon features that are less than 15 nt long,
                 # the annotation should be dropped from the output.

@@ -16,15 +16,19 @@ FT                   /isolate="reverse"
 FT                   /note="Tax.Authority: Author_1"
 FT                   /specimen_voucher="Herbarium_1: Collection#"
 FT                   /organism="reverse"
-FT   CDS             join(<1..4,8..24)
+FT   CDS             complement(join(16..>57,<1..9))
 FT                   /note="trnKTTT"
 FT                   /product="tRNA"
 FT                   /codon_start=1
-FT                   /translation="RIPGYY"
+FT                   /translation="MPGPGPGPGPGPGPGF"
 FT                   /transl_table=11
-FT   IGS             25..50
+FT   CDS             join(<1..9,16..>57)
 FT                   /note="foo"
+FT                   /product="forkhead box i1"
+FT                   /codon_start=1
+FT                   /translation="LKPGPGPGPGPGPGPGH"
+FT                   /transl_table=11
 XX
-SQ   Sequence 57 BP; 21 A; 12 C; 13 G; 11 T; 0 other;
-     aggaaatttc ccgggtacta ctaataaaaa taggcacccg ggaaatttgg gcccaaa           57
+SQ   Sequence 57 BP; 5 A; 25 C; 24 G; 3 T; 0 other;
+     ttaaaacccg ggcccgggcc cgggcccggg cccgggcccg ggcccgggcc cgggcat           57
 //

@@ -100,6 +100,7 @@ class GenerateFeatLoc:
         ''' This function makes the start position of location
             objects fuzzy.
         '''
+        orient = location_object._get_strand()
         if hasattr(location_object, 'parts'):
             if len(location_object.parts) == 1:
                 new_start_pos = SeqFeature.BeforePosition(
@@ -111,6 +112,7 @@ class GenerateFeatLoc:
                     location_object.parts[0].start)
                 location_object.parts[0] = SeqFeature.FeatureLocation(
                     new_start_pos, location_object.parts[0].end)
+        location_object._set_strand(orient)
         return location_object
 
     def make_end_fuzzy(self, location_object):
@@ -143,7 +145,7 @@ class GenerateFeatLoc:
 # Out: CompoundLocation([FeatureLocation(ExactPosition(1),
 # ExactPosition(4)), FeatureLocation(ExactPosition(7), AfterPosition(9))],
 # 'join')
-
+        orient = location_object._get_strand()
         if hasattr(location_object, 'parts'):
             if len(location_object.parts) == 1:
                 new_end_pos = SeqFeature.AfterPosition(location_object.end)
@@ -154,6 +156,7 @@ class GenerateFeatLoc:
                     location_object.parts[-1].end)
                 location_object.parts[-1] = SeqFeature.FeatureLocation(
                     location_object.parts[-1].start, new_end_pos)
+        location_object._set_strand(orient)
         return location_object
 
 
@@ -193,13 +196,14 @@ class GenerateSeqFeature:
             qualifiers=quals)
         return source_feature
 
-    def regular_feat(self, feature_name, feature_type, feature_loc,
+    def regular_feat(self, feature_name, feature_type, feature_orient, feature_loc,
                      transl_table, feature_seq, feature_product=None):
         ''' This function generates a regular SeqFeature for a SeqRecord.
         Args:
             feature_name (str):  usually a gene symbol; example: 'matK'
             feature_type (str):  an identifier as to the type of feature;
                                  example: 'intron'
+            feature_orient (str): a string defining
             feature_loc (object): a SeqFeature object specifying a simple
                                   or compund location on a DNA string
             transl_table (int): an integer; example: 11 (for bacterial code)
@@ -234,11 +238,15 @@ class GenerateSeqFeature:
             quals['estimated_length'] = str(feature_loc.end.position-feature_loc.start.position)
             #quals['estimated_length'] = str(feature_loc.end.real-feature_loc.start.real+1)
         # 4. Add a function to read in if a charset is forward or reverse and to adjust the info in the feature table.
-        #if
+        if feature_orient == "forw":
+            feature_orient = 1
+        else:
+            feature_orient = -1
         seq_feature = SeqFeature.SeqFeature(
             feature_loc,
             id=feature_name,
             type=feature_type,
+            strand=feature_orient,
             qualifiers=quals)
         return seq_feature
 
