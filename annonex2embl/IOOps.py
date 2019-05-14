@@ -116,7 +116,6 @@ class Outp:
         except:
             raise ME.MyException('%s annonex2embl ERROR: Problem with \
             `%s`. Did not write to internal handle.' % ('\n', seq_name))
-
         if eusubm_bool:
             temp_handle_lines = temp_handle.getvalue().splitlines()
             if temp_handle_lines[0].split()[0] == 'ID':

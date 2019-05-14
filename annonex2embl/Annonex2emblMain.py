@@ -83,7 +83,7 @@ def annonex2embl(path_to_nex,
 # 0. MAKE SPECIFIC VARIABLES BOOLEAN
     taxcheck_bool = strtobool(tax_check)
     linemask_bool = strtobool(linemask)
-
+    
 ########################################################################
 
 # 1. OPEN OUTFILE
@@ -403,7 +403,7 @@ if __name__ == "__main__":
                  'My Name',
                  'My Description',
                  'False',
-                 'False',
+                 'True',
                  'linear',
                  'PLN',
                  'isolate',
