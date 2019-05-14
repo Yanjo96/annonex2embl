@@ -28,7 +28,7 @@ setup(
     author='Michael Gruenstaeudl',
     author_email='m.gruenstaeudl@fu-berlin.de',
     license='GPLv3',
-    packages=['annonex2embl'], # So that the subfolder 'annonex2embl' is read immediately.
+    packages=['annonex2embl','scripts'], # So that the subfolder 'annonex2embl' is read immediately.
     #packages = find_packages(),
     install_requires=['biopython', 'unidecode', 'termcolor'],
     scripts=glob.glob('scripts/*'),
