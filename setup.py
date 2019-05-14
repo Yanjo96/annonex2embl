@@ -37,7 +37,7 @@ setup(
     zip_safe=False,
     enty_points={
         'console_scripts': [
-            'test=scripts/annonex2embl_cmd:test',
+            'test=scripts/annonex2embl_CMD:test',
         ],
     }
 )
