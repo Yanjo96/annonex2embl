@@ -309,7 +309,12 @@ class ParseCharsetName:
              charset_orient = 'forw'
         elif(len(orient_present) == 1):
             charset_orient = orient_present[0]
-            charset_name = ''.join(charset_name.split(orient_present[0]))
+            if charset_orient == "forw":
+                charset_name = charset_name.replace("forward","")
+                charset_name = charset_name.replace("forw","")
+            elif charset_orient == "rev":
+                charset_name = charset_name.replace("reverse","")
+                charset_name = charset_name.replace("rev","")
         else:
             raise ME.MyException('Zuviele Informationen bezueglich der Orientierung')
 
