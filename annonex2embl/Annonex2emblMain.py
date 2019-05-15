@@ -55,10 +55,6 @@ import pdb
 #############
 # FUNCTIONS #
 #############
-csv = "examples/input/reverse.csv"
-nex = "examples/input/reverse.nex"
-out = "examples/output/reverse.embl"
-
 def annonex2embl(path_to_nex,
                  path_to_csv,
                  descr_DEline,

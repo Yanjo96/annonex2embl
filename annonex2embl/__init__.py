@@ -1,2 +1,2 @@
 __all__ = ['Annonex2emblMain', 'CheckingOps', 'DegappingOps', 'GenerationOps',
-           'GlobalVariables', 'IOOps', 'MyExceptions', 'ParsingOps']
+           'GlobalVariables', 'IOOps', 'MyExceptions', 'ParsingOps','CLIOps']

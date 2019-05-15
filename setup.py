@@ -13,7 +13,7 @@ def my_test_suite():
 
 setup(
     name='annonex2embl',
-    version='0.4.5',
+    version='0.4.6',
     description='Converts annotated DNA sequence alignments in NEXUS format to ENA submission files',
     long_description=read('README.md'),
     classifiers=[

@@ -21,9 +21,9 @@ from Bio.SeqFeature import ExactPosition, FeatureLocation, CompoundLocation
 ###############
 
 __author__ = 'Michael Gruenstaeudl <m.gruenstaeudl@fu-berlin.de>'
-__copyright__ = 'Copyright (C) 2016-2018 Michael Gruenstaeudl'
+__copyright__ = 'Copyright (C) 2016-2019 Michael Gruenstaeudl'
 __info__ = 'annonex2embl'
-__version__ = '2018.05.22.1800'
+__version__ = '2019.05.15.1500'
 
 #############
 # DEBUGGING #
