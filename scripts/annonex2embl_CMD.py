@@ -48,9 +48,6 @@ import pdb
 ############
 # ARGPARSE #
 ############
-def test():
-    print "Test"
-
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description="  --  ".join([__author__, __copyright__, __info__, __version__]))
