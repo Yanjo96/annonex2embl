@@ -1,2 +1,0 @@
-annonex2embl
-scripts
