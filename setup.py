@@ -35,4 +35,9 @@ setup(
     test_suite='setup.my_test_suite',
     include_package_data=True,
     zip_safe=False,
+    entry_points={
+        'console_scripts': [
+            'annonex2embl = annonex2embl.CLIOps:start_annonex2embl'
+        ],
+    },
 )

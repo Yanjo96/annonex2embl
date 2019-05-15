@@ -1,5 +1,8 @@
 *.pyc
 *.egg-info
+*.embl
+*.manifest
+*.sh
 
 .Trashes
 Thumbs.db

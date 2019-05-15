@@ -83,7 +83,7 @@ def annonex2embl(path_to_nex,
 # 0. MAKE SPECIFIC VARIABLES BOOLEAN
     taxcheck_bool = strtobool(tax_check)
     linemask_bool = strtobool(linemask)
-    
+
 ########################################################################
 
 # 1. OPEN OUTFILE
@@ -389,25 +389,3 @@ def annonex2embl(path_to_nex,
         IOOps.Outp().create_manifest_file(path_to_outfile, manifest_study, manifest_name, manifest_description)
     elif(manifest_study!='' or manifest_name!=''):
         raise ME.MyException('Error by creating manifest file. Please give both information -ms study name and -mn your name.')
-
-
-if __name__ == "__main__":
-    annonex2embl(nex,
-                 csv,
-                 "chloroplast trnR-atpA intergenic spacer",
-                 "c.grube@yahoo.com",
-                 "Grube, Claire",
-                 out,
-
-                 'My Study',
-                 'My Name',
-                 'My Description',
-                 'False',
-                 'True',
-                 'linear',
-                 'PLN',
-                 'isolate',
-                 '11',
-                 'plastid',
-                 '1'
-                 )
