@@ -55,7 +55,7 @@ class GenerateFeatLocTestCases(unittest.TestCase):
 
     def test_GenerateFeatLoc__make_location__2(self):
         ''' Test to evaluate function `make_location` of class `GenerateFeatLoc`.
-            This test evaluates the case of a discontinuous range, resulting in 
+            This test evaluates the case of a discontinuous range, resulting in
             a compound location. '''
         charset_range = [1,2,3,7,8]
         out = GnOps.GenerateFeatLoc().make_location(charset_range)
@@ -63,9 +63,9 @@ class GenerateFeatLocTestCases(unittest.TestCase):
 
     def test_GenerateFeatLoc__make_location__3(self):
         ''' Test to evaluate function `make_location` of class `GenerateFeatLoc`.
-            This test evaluates the case of a discontinuous range that is 
+            This test evaluates the case of a discontinuous range that is
             separated only by a nucleotide, resulting in a compound location.
-            This test evaluates if the function correctly generates a compound 
+            This test evaluates if the function correctly generates a compound
             feature location if only a single base separates them. '''
         charset_range = [1,2,3,5,6]
         out = GnOps.GenerateFeatLoc().make_location(charset_range)
@@ -96,7 +96,7 @@ class GenerateFeatLocTestCases(unittest.TestCase):
 
     def test_GenerateFeatLoc__make_start_fuzzy__3(self):
         ''' Test to evaluate function `make_start_fuzzy` of class `GenerateFeatLoc`.
-            This test evaluates if end FeatureLocations are made fuzzy. 
+            This test evaluates if end FeatureLocations are made fuzzy.
             See AfterPosition. '''
         from Bio import SeqFeature
         start_pos = SeqFeature.ExactPosition(5)
@@ -109,7 +109,7 @@ class GenerateFeatLocTestCases(unittest.TestCase):
     def test_GenerateFeatLoc__make_start_fuzzy__4(self):
         ''' Test to evaluate function `make_start_fuzzy` of class `GenerateFeatLoc`.
             This test evaluates if end FeatureLocations are made fuzzy with a
-            discontinuous location. 
+            discontinuous location.
             See BeforePosition. '''
         from Bio import SeqFeature
         charset_range = [1,2,3,7,8]
@@ -124,39 +124,40 @@ class GenerateSeqFeatureTestCases(unittest.TestCase):
 
     def test_GenerateSeqFeature__source_feat__1(self):
         ''' Test to evaluate function `source_feat` of class `GenerateSeqFeature`.
-            This test evaluates the correct generation of the SeqFeature 
+            This test evaluates the correct generation of the SeqFeature
             `source`. A translation table is to be included. '''
         full_len = 509
         quals = {'isolate': 'taxon_B', 'country': 'Ecuador'}
         charset_names = ['foo_gene', 'foo_CDS']
-        transl_table = 11
         out = GnOps.GenerateSeqFeature().source_feat(full_len,
-            quals, charset_names, transl_table)
+            quals, charset_names)
         self.assertIsInstance(out, Bio.SeqFeature.SeqFeature)
 
     def test_GenerateSeqFeature__source_feat__2(self):
         ''' Test to evaluate function `source_feat` of class `GenerateSeqFeature`.
-            This test evaluates the correct generation of the SeqFeature 
+            This test evaluates the correct generation of the SeqFeature
             `source`. A translation table is NOT to be included. '''
         full_len = 509
         quals = {'isolate': 'taxon_B', 'country': 'Ecuador'}
         charset_names = ['foo_intron', 'foo_IGS']
-        transl_table = 11
         out = GnOps.GenerateSeqFeature().source_feat(full_len,
-            quals, charset_names, transl_table)
+            quals, charset_names)
         self.assertIsInstance(out, Bio.SeqFeature.SeqFeature)
 
 
     def test_GenerateSeqFeature__regular_feat__1(self):
         ''' Test to evaluate function `regular_feat` of class `GenerateSeqFeature`.
-            This test evaluates the correct generation of a regular, non-coding 
+            This test evaluates the correct generation of a regular, non-coding
             SeqFeature. '''
         feature_name = 'psbI'
         feature_type = 'intron'
+        feature_orient = 'forw'
+        transl_table = 11
+        feature_seq = 'ACGTACGTACGTACGT'
         charset_range = [2,3,4,5]
         feature_loc = GnOps.GenerateFeatLoc().make_location(charset_range)
         out = GnOps.GenerateSeqFeature().regular_feat(feature_name,
-            feature_type, feature_loc)
+            feature_type, feature_orient, feature_loc, transl_table, feature_seq)
         self.assertIsInstance(out, Bio.SeqFeature.SeqFeature)
 
 #############

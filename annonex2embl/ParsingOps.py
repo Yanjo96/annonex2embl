@@ -322,12 +322,13 @@ class ParseCharsetName:
         else:
             raise ME.MyException('Zuviele Informationen bezueglich der Features')
 
-        try:
-            charset_sym = charset_name.strip('_').split('_')[0]
-        except:
+        charset_sym = charset_name.strip('_').split('_')
+        if len(charset_sym) == 1:
+            return (charset_sym[0], charset_type, charset_orient)
+        else:
             raise ME.MyException('Da ist etwas schief gelaufen')
 
-        return (charset_sym, charset_type, charset_orient)
+
 
 
     def parse(self):
