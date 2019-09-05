@@ -294,9 +294,10 @@ class ParseCharsetName:
         currently nothing
     '''
 
-    def __init__(self, charset_name, email_addr):
+    def __init__(self, charset_name, email_addr, product_check):
         self.charset_name = charset_name
         self.email_addr = email_addr
+        self.product_check = product_check
 
     @staticmethod
     def _extract_charstet_information(charset_name):
@@ -344,7 +345,7 @@ class ParseCharsetName:
         '''
         charset_sym, charset_type, charset_orient = ParseCharsetName._extract_charstet_information(self.charset_name)
         entrez_handle = GetEntrezInfo(self.email_addr)
-        if charset_type == 'CDS' or charset_type == 'gene':
+        if (charset_type == 'CDS' or charset_type == 'gene') and self.product_check:
             try:
                 charset_product = entrez_handle.obtain_gene_product(
                     charset_sym)

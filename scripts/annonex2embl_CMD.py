@@ -99,6 +99,7 @@ if __name__ == '__main__':
     parser.add_argument('-mn',
                         '--manifestname',
                         help='Name which appears in the manifest file',
+                        default='',
                         required=False)
 
     parser.add_argument('-md',
@@ -106,6 +107,11 @@ if __name__ == '__main__':
                         help='Description for the manifest file',
                         default='',
                         required=False)
+
+    parser.add_argument('--productcheck',
+                         help='A logical; Shall product names be inferred from gene abbreviations?',
+                         default='False',
+                         required=False)
 
     parser.add_argument('--taxcheck',
                         help='A logical; Shall taxon names be checked against NCBI Taxonomy?',
@@ -175,6 +181,7 @@ if __name__ == '__main__':
                                 args.manifeststudy,
                                 args.manifestname,
                                 args.manifestdescription,
+                                args.productcheck,
                                 args.taxcheck,
                                 args.linemask,
                                 args.topol,
